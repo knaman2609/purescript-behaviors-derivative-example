@@ -2,7 +2,7 @@ var y = 0;
 var x = 0;
 var maxSpeed = 0;
 
-var updateChartImpl = function (x, y) {
+var renderChart = function (x, y) {
   window.dps.push({x: x, y: y});
   window.chart.render();
 };
@@ -43,6 +43,6 @@ exports.updateChart = function(y) {
 
     topSpeedDiv.innerHTML = maxSpeed;
 
-    updateChartImpl(x, y);
+    renderChart(x, y);
   }
 }
