@@ -1,0 +1,49 @@
+<head>
+    <style>
+    #container {
+        width: 600px;
+        position: absolute;
+        margin-left : -300px;
+        left: 50%;
+    }
+
+     input {
+         width: 100%;
+     }
+    </style>
+    <script>
+
+     window.onload = function () {
+        window.dps = [];
+
+        window.chart = new CanvasJS.Chart("chartContainer1", {
+            animationEnabled: true,
+            theme: "light2",
+            title:{
+                text: "Simple Line Chart"
+            },
+            axisY:{
+                includeZero: false
+            },
+            data: [{
+                type: "line",
+                dataPoints: window.dps
+            }]
+        });
+
+        chart.render();
+     }
+
+    </script>
+</head>
+<body>
+    <div id="container">
+     <input type="range" min="1" max="1000" value="1" class="slider" id="myRange"/>
+     <div id="top-speed"></div>
+     <div id="chartContainer1" style="height: 300px; width: 100%;"></div>
+    </div>
+</body>
+<script>
+</script>
+<script src="index.js"></script>
+<script src="canvasjs.min.js"></script>
