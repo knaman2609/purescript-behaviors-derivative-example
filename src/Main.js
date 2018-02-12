@@ -2,7 +2,7 @@ var y = 0;
 var x = 0;
 var maxSpeed = 0;
 
-var updateChart = function (x, y) {
+var updateChartImpl = function (x, y) {
   window.dps.push({x: x, y: y});
   window.chart.render();
 };
@@ -28,7 +28,7 @@ exports.attachSignalEvents = function(axis) {
   }
 }
 
-exports.logAny = function(y) {
+exports.updateChart = function(y) {
   return function() {
     var topSpeedDiv = document.getElementById("top-speed");
 
@@ -43,6 +43,6 @@ exports.logAny = function(y) {
 
     topSpeedDiv.innerHTML = maxSpeed;
 
-    updateChart(x, y);
+    updateChartImpl(x, y);
   }
 }

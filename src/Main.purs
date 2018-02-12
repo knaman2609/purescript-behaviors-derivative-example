@@ -9,7 +9,7 @@ import FRP.Event as E
 import FRP.Behavior as B
 
 foreign import attachSignalEvents :: forall a b eff.  String -> (b ->  Eff (frp::F.FRP | eff) Unit) -> Unit
-foreign import logAny :: forall a eff. a ->  Eff eff Unit
+foreign import updateChart :: forall a eff. a ->  Eff eff Unit
 
 signal m = do
   o <- E.create
@@ -25,4 +25,4 @@ main = do
 
   let b = B.derivative' y.behavior x.behavior
 
-  B.sample_ b z.event `E.subscribe` (\x -> logAny x)
+  B.sample_ b z.event `E.subscribe` (\x -> updateChart x)
